@@ -4,10 +4,6 @@ export const getTotalPrice = async (
   symbol: string = "BTC",
   quantity: number = 1
 ): Promise<number> => {
-  if (quantity <= 0) {
-    throw new Error("Quantity must be greater than zero.");
-  }
-
   try {
     const data = await fetchRate(symbol);
     const totalPrice = +(data.rate * quantity).toFixed(2);
